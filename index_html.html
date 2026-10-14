@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index.html</title>
+  <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  max-width: 380px; margin: 0 auto; padding: 15px;
+  background: #f8f1e7; color: #4b3828;
+  font-family: Arial, sans-serif;
+}
+nav {
+  background: #b89572; border-bottom: 3px solid #806044;
+  padding: 10px; text-align: center; font-size: 12px;
+  border-radius: 12px;
+}
+nav a { color: white; text-decoration: none; cursor: pointer; font-weight: 600; }
+nav a.active { background: white; color: #806044; padding: 3px 8px; border-radius: 10px; }
+
+.profil { text-align: center; padding: 20px 0 15px; }
+.foto { width: 90px; height: 90px; margin: auto; border: 3px solid #9a7959; border-radius: 50%; overflow: hidden; background: white; }
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.profil h1 { font-size: 18px; margin-top: 10px; color: #684b32; }
+.profil p { font-size: 12px; color: #806b57; margin-top: 3px; }
+
+.garis, .garis-footer { width: 100%; height: 2px; background: #9a7959; margin: 10px 0; }
+
+.halaman { display: none; }
+.halaman.active { display: block; }
+
+.overview { text-align: center; padding: 10px 0; }
+.overview h2 { font-size: 18px; margin-bottom: 8px; color: #684b32; }
+.overview p { font-size: 12px; line-height: 1.5; }
+
+.data { display: flex; gap: 8px; margin-top: 10px; }
+.bagian { width: 50%; }
+.judul-kotak { background: #b89572; border: 2px solid #806044; text-align: center; padding: 5px; font-size: 12px; color: white; font-weight: 600; }
+.isi-kotak { background: #fffdf9; border: 2px solid #9a7959; margin-top: 5px; padding: 8px; font-size: 11px; }
+.isi-kotak p { margin-bottom: 4px; }
+
+.box-form { background: #fffdf9; border: 2px solid #9a7959; padding: 12px; border-radius: 8px; }
+.box-form input, .box-fo rm textarea { width: 100%; padding: 7px; margin-bottom: 8px; border: 1.5px solid #b89572; font-size: 11px; font-family: Arial; border-radius: 6px; }
+.btn { background: #b89572; border: 2px solid #806044; color: white; padding: 6px 15px; font-size: 12px; border-radius: 8px; cursor: pointer; }
+
+footer { text-align: center; font-size: 10px; padding: 10px 0; color: #684b32; }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahra Shifa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a onclick="buka('home')" id="l-home" class="active">Home</a> | 
+  <a onclick="buka('cv')" id="l-cv">Download CV</a> | 
+  <a onclick="buka('contact')" id="l-contact">Contact</a> | 
+  <a onclick="buka('about')" id="l-about">About me</a>
+</nav>
+
+<div class="profil">
+  <div class="foto"><img src="https://drive.google.com/thumbnail?id=1_xvb-jUy-6hcgDXevCYoajP1vgKMEhNL&sz=w500" alt="Foto"></div>
+  <h1>Zahra Shifa Nur Aqilah</h1>
+  <p>(Siswa SMK Komputama)</p>
+</div>
+
+<div class="garis"></div>
+
+<!-- HALAMAN HOME -->
+<div id="home" class="halaman active">
+  <div class="overview">
+    <h2>Overview</h2>
+    <p>Hi, saya adalah web developer saat ini sedang belajar HTML di Petani Kode.</p>
+  </div>
+  <div class="data">
+    <div class="bagian"><div class="judul-kotak">Skill</div><div class="isi-kotak"><p>- HTML (Expert)</p><p>- CSS (Beginner)</p><p>- JS (Beginner)</p></div></div>
+    <div class="bagian"><div class="judul-kotak">Pengalaman</div><div class="isi-kotak"><p>- Pernah bekerja di ____</p><p>- Leader komunitas</p><p>- Kontributor</p></div></div>
+  </div>
+</div>
+
+<!-- HALAMAN CV -->
+<div id="cv" class="halaman">
+  <div class="overview"><h2>Download CV</h2><p>Klik tombol di bawah buat download CV aku</p><br><button class="btn">Download CV</button></div>
+</div>
+
+<!-- HALAMAN CONTACT -->
+<div id="contact" class="halaman">
+  <div class="overview"><h2>Contact Me</h2></div>
+  <div class="box-form">
+    <input type="text" placeholder="Nama kamu">
+    <input type="email" placeholder="Email">
+    <textarea rows="3" placeholder="Pesan..."></textarea>
+    <button class="btn">Kirim</button>
+  </div>
+</div>
+
+<!-- HALAMAN ABOUT -->
+<div id="about" class="halaman">
+  <div class="overview"><h2>About Me</h2><p>Saya Zahra Shifa, siswi SMK Komputama yang suka ngoding dan belajar hal baru. Cita-cita jadi web developer profesional.</p></div>
+</div>
+
+<div class="garis-footer"></div>
+<footer>Copyright 2026 © zahra shifa nur aqilah XI TJKT 3.</footer>
+
+<script>
+function buka(id){
+  document.querySelectorAll('.halaman').forEach(h=>h.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('l-'+id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
+  <script>
+
+  </script>
+</body>
+</html>
